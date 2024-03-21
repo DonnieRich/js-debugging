@@ -81,7 +81,7 @@ const books = [
     }
 ];
 
-const iconsByGenres = Object.freeze({
+const iconsByGenres = {
     adventure: 'adventure',
     sea: 'sea',
     novel: 'book',
@@ -89,9 +89,9 @@ const iconsByGenres = Object.freeze({
     fantasy: 'fantasy',
     travels: 'travels',
     biography: 'biography',
-});
+};
 
-const genresLabels = Object.freeze({
+const genresLabels = {
     adventure: 'Avventura',
     sea: 'Mare',
     novel: 'Romanzo',
@@ -99,7 +99,7 @@ const genresLabels = Object.freeze({
     fantasy: 'Fantastico',
     travels: 'Viaggi',
     biography: 'Autobiografia',
-});
+};
 
 displayBooks(books);
 
@@ -110,14 +110,14 @@ function displayBooks(books) {
         const tags = book.genres.forEach((genre) => {
             return `<div class="book-tag">${genre}</div>`;
         });
-    
+
         const chars = {
             ',': '',
             '.': '',
             ' ': '',
             '"': ''
         }
-    
+
         let ratingString = '';
         const rating = book.rating / 2;
         for (let i = 1; i <= rating; i++) {
@@ -129,7 +129,7 @@ function displayBooks(books) {
         for (let i = rating; i <= 4; i++) {
             ratingString += '<img src="icons/star-empty.png">';
         }
-        
+
         booksContainer.innerHTML += `
             <div class="book">
                 <div class="book-icons">
